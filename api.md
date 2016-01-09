@@ -11,57 +11,66 @@
 + 401 —— 用户认证错误
 
 3. 为方便开发学习，info输出sql语句
+
+
 ###1. 注册
 地址：http://redrock.hotwoo.cn/zhihu/register.php
 参数：
->name:
+
+>name:  
 >password:
 
 返回：
->{
-    "info": "INSERT INTO person ( name , password ) VALUES ( 'jimm' , '33' )",
-}
+
+	{
+	    "info": "INSERT INTO person ( name , password ) VALUES ( 'jimm' , '33' )",
+	}
 
 ###2. 登录
 地址：http://redrock.hotwoo.cn/zhihu/login.php
 参数
->name:
+
+>name:  
 >password:
 
 返回：
->{
-        "id": "50",
-        "name": "jimm",
-        "face": null,
-        "password": "33",
-        "token": "501343d0d2a14eb67885ee4f8c2ef31d95fb8859"
-}
+
+	{
+	        "id": "50",
+	        "name": "jimm",
+	        "face": null,
+	        "password": "33",
+	        "token": "501343d0d2a14eb67885ee4f8c2ef31d95fb8859"
+	}
 
 返回用户信息及token
 
 ###3. 修改头像
 地址：http://redrock.hotwoo.cn/zhihu/modifyFace.php
 参数
->token:
->face：
+
+>token:  
+>face:
 
 传用户头像地址。本API不负责图片文件储存，图片储存请右转阿里，七牛。把图片地址穿上来。
 
 返回
->{
-    "info": "UPDATE person SET face = 33333 WHERE id = 50",
-}
+
+	{
+	    "info": "UPDATE person SET face = 33333 WHERE id = 50",
+	}
 
 ###4. 取问题列表
 地址：http://redrock.hotwoo.cn/zhihu/getQuestionList.php
 参数
->page:
->count:
 
-count可空，每页条数，默认20条。
+>page:  
+>count:可空，每页条数，默认20条。
+
 返回
->{
 
+	{
+	
         "totalCount": 6,
         "totalPage": 1,
         "questions": [
@@ -127,64 +136,69 @@ count可空，每页条数，默认20条。
             }
         ],
         "curPage": "0"
-}
+	}
 
 recent表示最近回复时间。没有回复时为null。
 
 ###5. 取回答列表
 地址：http://redrock.hotwoo.cn/zhihu/getAnswerList.php
 参数：
->page:
->questionId:
->count:
->desc
-count可空，每页条数，默认20条。
-desc可空，是否倒序，填true 或 false
+
+>page:  
+>questionId:  
+>count:可空，每页条数，默认20条。  
+>desc:可空，是否倒序，填true 或 false
+
 返回：
->{
-        "totalCount": "2",
-        "totalPage": 1,
-        "answers": [
-            {
-                "id": "42",
-                "content": "hehe",
-                "date": "2015-05-02 16:49:14",
-                "authorId": "21",
-                "authorName": "zhs",
-                "authorFace": null
-            },
-            {
-                "id": "43",
-                "content": "??",
-                "date": "2015-05-02 16:49:20",
-                "authorId": "21",
-                "authorName": "zhs",
-                "authorFace": null
-            }
-        ]
-         "curPage": "0"
-}
+
+	{
+	        "totalCount": "2",
+	        "totalPage": 1,
+	        "answers": [
+	            {
+	                "id": "42",
+	                "content": "hehe",
+	                "date": "2015-05-02 16:49:14",
+	                "authorId": "21",
+	                "authorName": "zhs",
+	                "authorFace": null
+	            },
+	            {
+	                "id": "43",
+	                "content": "??",
+	                "date": "2015-05-02 16:49:20",
+	                "authorId": "21",
+	                "authorName": "zhs",
+	                "authorFace": null
+	            }
+	        ]
+	         "curPage": "0"
+	}
 
 ###6. 发布问题
 地址：http://redrock.hotwoo.cn/zhihu/question.php
 参数：
->title:
->content:
+
+>title:  
+>content:  
 >token:
 
 返回：
->{
-    "info": "INSERT INTO question ( authorId , title , content , date ) \n\tVALUES ( '19' , '这是标题','这是描述',now())",
-}
+
+	{
+	    "info": "INSERT INTO question ( authorId , title , content , date ) \n\tVALUES ( '19' , '这是标题','这是描述',now())",
+	}
 
 ###7. 发布回答
 地址：http://redrock.hotwoo.cn/zhihu/answer.php
 参数：
->questionId:
->content:
+
+>questionId:  
+>content:  
 >token
 
 返回：
->{
-    "info": "INSERT INTO answer ( authorId , questionId , content , date ) VALUES ( '34' , '13','hehe',now())",
-}
+
+	{
+	    "info": "INSERT INTO answer ( authorId , questionId , content , date ) VALUES ( '34' , '13','hehe',now())",
+	}
