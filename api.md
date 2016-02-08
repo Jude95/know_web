@@ -171,7 +171,7 @@ recent表示最近回复时间。没有回复时为null。
 	                "authorName": "zhs",
 	                "authorFace": null
 	            }
-	        ]
+	        ],
 	         "curPage": "0"
 	}
 
