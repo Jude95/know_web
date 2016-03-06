@@ -2,14 +2,14 @@
 #逼乎API文档
 
 ###规则
-1. 所有接口POST，参数 x-www-form-urlencoded模式，返回json
+1. 所有接口POST，参数 x-www-form-urlencoded模式，返回json。
 
 2. 响应状态：
 	+ 200 —— 成功
 	+ 400 —— 参数错误
 	+ 401 —— 用户认证错误
 
-3. 为方便开发学习，info输出sql语句
+3. 为方便开发学习，info输出sql语句。
 4. 登录后用token代表用户。
 
 
@@ -43,7 +43,7 @@
 	        "token": "501343d0d2a14eb67885ee4f8c2ef31d95fb8859"
 	}
 
-返回用户信息及token
+返回用户信息及token。
 
 ###3. 修改头像
 地址：http://redrock.alien95.cn/know/modifyFace.php
@@ -52,7 +52,7 @@
 >token:  
 >face:
 
-传用户头像地址。本API不负责图片文件储存，图片储存请右转阿里，七牛。把图片地址穿上来。
+传用户头像地址。本API不负责图片文件储存，图片储存请右转阿里，七牛，然后把图片地址穿上来。
 
 返回
 
@@ -138,7 +138,7 @@
         "curPage": "0"
 	}
 
-recent表示最近回复时间。没有回复时为null。
+recent表示最近回复时间，没有回复时为null。
 
 ###5. 取回答列表
 地址：http://redrock.alien95.cn/know/getAnswerList.php
@@ -146,7 +146,7 @@ recent表示最近回复时间。没有回复时为null。
 
 >page:  
 >questionId:  
->count:可空，每页条数，默认20条。  
+>count:可空，每页条数，默认20条
 >desc:可空，是否倒序，填true 或 false
 
 返回：
