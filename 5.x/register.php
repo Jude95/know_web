@@ -1,5 +1,5 @@
 <?php
- include("connect.php" );
+ include("connect.php");
 
  $name = addslashes($_POST["name"]);
  $password = addslashes($_POST["password"]);
