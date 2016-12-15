@@ -1,4 +1,4 @@
-DROP DATABASE `bihu`;
+DROP DATABASE IF EXISTS `bihu`;
 CREATE DATABASE `bihu`;
 
 USE `bihu`;
@@ -6,9 +6,9 @@ USE `bihu`;
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
   `id`       INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name`     VARCHAR(16)  NOT NULL,
+  `username` VARCHAR(16)  NOT NULL,
   `password` VARCHAR(16)  NOT NULL,
-  `avatar`     VARCHAR(255)          DEFAULT NULL,
+  `avatar`   TEXT                  DEFAULT NULL,
   `token`    VARCHAR(64)           DEFAULT NULL,
   PRIMARY KEY (`id`)
 )

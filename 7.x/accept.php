@@ -2,8 +2,7 @@
 include("connect.php");
 include("token.php");
 
-$result = checkToken($pdo, $token);
-$uid = $result["uid"];
+$uid = checkToken($pdo, $token);
 
 $answerId = addslashes($_POST["answerId"]);
 $questionId = addslashes($_POST["questionId"]);

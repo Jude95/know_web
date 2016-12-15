@@ -1,13 +1,10 @@
 <?php
-
 include("connect.php");
 include("token.php");
 
 $avatar = addslashes($_POST["avatar"]);
 $token = addslashes($_POST["token"]);
-$result = checkToken($pdo, $token);
-
-$uid = $result["uid"];
+$uid = checkToken($pdo, $token);
 
 $sql = "UPDATE person SET `avatar` = '{$avatar}' WHERE `id` = '{$uid}'";
 

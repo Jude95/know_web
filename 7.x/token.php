@@ -1,10 +1,11 @@
 <?php
+include("jsonWrapper.php");
 function checkToken(PDO $pdo, $token)
 {
     $query = "SELECT `id` FROM `person` WHERE `token` = '{$token}'";
     $result = $pdo->query($query);
     if ($row = $result->fetch(PDO::FETCH_NAMED)) {
-        return $row["uid"];
+        return $row["id"];
     } else {
         other_encode(401, "token:{$token} 无效");
         return null;
