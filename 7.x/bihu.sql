@@ -22,6 +22,7 @@ CREATE TABLE `question` (
   `recent`      TIMESTAMP    NULL     DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `title`       VARCHAR(32)  NOT NULL,
   `content`     TEXT         NOT NULL,
+  `exciting`    INT                   DEFAULT 0,
   `date`        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`uid`) REFERENCES person (`id`)

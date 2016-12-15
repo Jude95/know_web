@@ -1,8 +1,12 @@
 <?php
-function success_encode($data = null)
+function success_encode($info = null, $data = null)
 {
     $result["status"] = 200;
-    $result["info"] = "success";
+    if ($info) {
+        $result["info"] = $info;
+    }else{
+        $result["info"] = "success";
+    }
     if ($data) {
         $result['data'] = $data;
     }

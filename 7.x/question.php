@@ -14,5 +14,5 @@ $sql = "INSERT INTO question ( `uid`, `title`, `content` ) VALUES (  $uid , '{$t
 if ($pdo->exec($sql)) {
     success_encode();
 } else {
-    other_encode(500, $pdo->errorInfo());
+    other_encode(500, "提问失败");
 }

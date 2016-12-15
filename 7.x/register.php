@@ -18,7 +18,7 @@ if ($username && $pass) {
             $result["token"] = create_unique($pdo, $result['id']);
             success_encode($result);
         } else {
-            other_encode(500, $pdo->errorInfo());
+            other_encode(500, "注册失败");
         }
     }
 } else {

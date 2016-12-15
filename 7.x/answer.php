@@ -15,6 +15,6 @@ if ($pdo->exec($sql)) {
     $pdo->exec($update);
     success_encode();
 } else {
-    other_encode(500, $pdo->errorInfo());
+    other_encode(500, "回答失败");
 }
 
