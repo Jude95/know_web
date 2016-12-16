@@ -103,15 +103,16 @@
     "totalPage": 1,
     "questions": [
       {
-        "id": 3,
+        "id": 1,
         "title": "哦哈哟",
         "content": "起床啦",
-        "date": "2016-12-15 11:53:41",
-        "recent": null,
+        "date": "2016-12-15 12:16:09",
+        "recent": "2016-12-15 12:17:10",
         "answerCount": 0,
         "uid": 1,
+        "exciting": 2,
         "authorName": "admin",
-        "authorAvatar": ""
+        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
       },
       {
         "id": 2,
@@ -121,8 +122,9 @@
         "recent": null,
         "answerCount": 0,
         "uid": 1,
+        "exciting": 0,
         "authorName": "admin",
-        "authorAvatar": ""
+        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
       },
       {
         "id": 1,
@@ -132,8 +134,9 @@
         "recent": null,
         "answerCount": 0,
         "uid": 1,
+        "exciting": 0,
         "authorName": "admin",
-        "authorAvatar": ""
+        "authorAvatar": "https://avatars1.githubusercontent.com/u/14852537?v=3&s=460"
       }
     ],
     "curPage": 0
@@ -157,18 +160,19 @@ recent表示最近回复时间，没有回复时为null。
 ```json
 {
   "status": 200,
-  "info": "success",
-  "data": {
+  "info": {
     "totalCount": 1,
     "totalPage": 1,
     "answers": [
       {
         "id": 1,
-        "content": "蛤?",
+        "content": "早啊，单身狗",
         "date": "2016-12-15 12:17:10",
-        "authorId": 1,
-        "authorName": "admin",
-        "authorAvatar": ""
+        "exciting": 0,
+        "best": 1,
+        "authorId": 2,
+        "authorName": "test",
+        "authorAvatar": null
       }
     ],
     "curPage": 0

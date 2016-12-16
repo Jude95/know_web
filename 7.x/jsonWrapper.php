@@ -24,4 +24,3 @@ function other_encode($status, $info, $data = null)
     echo json_encode($result);
     exit(0);
 }
-

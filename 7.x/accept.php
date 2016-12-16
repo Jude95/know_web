@@ -2,17 +2,17 @@
 include("connect.php");
 include("token.php");
 
-$token = addslashes($_POST["token"]);
+$token = $_POST["token"];
 $uid = checkToken($pdo, $token);
 
-$aid = addslashes($_POST["aid"]);
-$qid = addslashes($_POST["qid"]);
+$aid = (int)$_POST["aid"];
+$qid = (int)$_POST["qid"];
 
-$sql = "SELECT * FROM answer WHERE `id` = {$aid} AND `qid` = {$qid}";
+$sql = $pdo->prepare("SELECT * FROM question WHERE `id` = ? AND `uid` = ?");
 
-if ($pdo->query($sql)) {
-    $sql = "UPDATE answer SET `best` = TRUE WHERE `qid` = {$qid} AND `uid` = {$uid}";
-    if ($pdo->query($sql)) {
+if ($sql->execute(array($qid, $uid))) {
+    $sql = $pdo->prepare("UPDATE answer SET `best` = TRUE WHERE `qid` = ? AND `id` = ?");
+    if ($sql->execute(array($qid, $aid))) {
         success_encode();
     } else {
         other_encode(500, "采纳失败");

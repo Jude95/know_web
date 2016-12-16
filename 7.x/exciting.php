@@ -11,15 +11,17 @@ checkToken($pdo, $token);
 $type = (int)$_POST["type"];
 $id = (int)$_POST["id"];
 
+$sql = null;
+
 if ($type == $TYPE_ANSWER) {
-    $sql = "UPDATE answer SET `exciting` = `exciting` + 1 WHERE `id` = $id";
+    $sql = $pdo->prepare("UPDATE answer SET `exciting` = `exciting` + 1 WHERE `id` = ?");
 } elseif ($type == $TYPE_QUESTION) {
-    $sql = "UPDATE question SET `exciting` = `exciting` + 1 WHERE `id` = $id";
+    $sql = $pdo->prepare("UPDATE question SET `exciting` = `exciting` + 1 WHERE `id` = ?");
 } else {
     other_encode(400, "一点都不exciting");
 }
 
-if ($pdo->exec($sql)) {
+if ($sql && $sql->execute(array($id))) {
     success_encode($info = "excited");
 } else {
     other_encode(500, "exciting失败");

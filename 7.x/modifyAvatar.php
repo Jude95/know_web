@@ -2,15 +2,14 @@
 include("connect.php");
 include("token.php");
 
-$avatar = addslashes($_POST["avatar"]);
-$token = addslashes($_POST["token"]);
+$avatar = $_POST["avatar"];
+$token = $_POST["token"];
 $uid = checkToken($pdo, $token);
 
-$sql = "UPDATE person SET `avatar` = '{$avatar}' WHERE `id` = $uid";
+$sql = $pdo->prepare("UPDATE person SET `avatar` = ? WHERE `id` = ?");
 
-if ($pdo->exec($sql)) {
+if ($sql->execute(array($avatar, $uid))) {
     success_encode();
 } else {
     other_encode(500, "更改失败");
 }
-

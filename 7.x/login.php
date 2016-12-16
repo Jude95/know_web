@@ -2,12 +2,13 @@
 include("connect.php");
 include("token.php");
 
-$username = addslashes($_POST["username"]);
-$password = addslashes($_POST["password"]);
+$username = $_POST["username"];
+$password = $_POST["password"];
 
-$query = "SELECT `id`, `username`, `avatar` FROM person WHERE `username` = '{$username}' AND `password` = '{$password}'";
-$result = $pdo->query($query);
-if ($row = $result->fetch(PDO::FETCH_NAMED)) {
+$sql = $pdo->prepare("SELECT `id`, `username`, `avatar` FROM person WHERE `username` = ? AND `password` = ?");
+
+$sql->execute(array($username, $password));
+if ($row = $sql->fetch(PDO::FETCH_NAMED)) {
     $row["token"] = create_unique($pdo, $row["id"]);
     success_encode($row);
 } else {

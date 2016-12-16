@@ -12,7 +12,7 @@ CREATE TABLE `person` (
   `token`    VARCHAR(64)           DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 DROP TABLE IF EXISTS `question`;
 CREATE TABLE `question` (
@@ -27,7 +27,7 @@ CREATE TABLE `question` (
   PRIMARY KEY (`id`),
   FOREIGN KEY (`uid`) REFERENCES person (`id`)
 )
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
 DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
@@ -42,5 +42,5 @@ CREATE TABLE `answer` (
   FOREIGN KEY (`uid`) REFERENCES person (`id`),
   FOREIGN KEY (`qid`) REFERENCES question (`id`)
 )
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
 
