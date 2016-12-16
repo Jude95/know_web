@@ -1,12 +1,12 @@
 <?php
- include("connect.php" );
+ include("connect.php");
  include("token.php");
 
  $result = array("status" => 0,"info" => "","data"=> null);
  $answerId = addslashes($_POST["answerId"]);
  $questionId = addslashes($_POST["answerId"]);
  $userId = checkToken(addslashes($_POST["token"]),$returnData);
-	if ($authorId == -1) {
+	if ($result == -1) {
 		echo json_encode($returnData);
 		return;
 	}

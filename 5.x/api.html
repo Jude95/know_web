@@ -1,49 +1,49 @@
-<h1 id="�ƺ�api�ĵ�">�ƺ�API�ĵ�</h1>
+<h1 id="逼乎api文档">逼乎API文档</h1>
 
 
 
-<h3 id="����">����</h3>
+<h3 id="规则">规则</h3>
 
 <ol>
-<li><p>���нӿ�POST������ x-www-form-urlencodedģʽ������json</p></li>
-<li><p>��Ӧ״̬��</p>
+<li><p>所有接口POST，参数 x-www-form-urlencoded模式，返回json</p></li>
+<li><p>响应状态：</p>
 
-<ul><li>200 ���� �ɹ�</li>
-<li>400 ���� ��������</li>
-<li>401 ���� �û���֤����</li></ul></li>
-<li><p>Ϊ���㿪��ѧϰ��info���sql���</p></li>
+<ul><li>200 —— 成功</li>
+<li>400 —— 参数错误</li>
+<li>401 —— 用户认证错误</li></ul></li>
+<li><p>为方便开发学习，info输出sql语句</p></li>
 </ol>
 
 
 
-<h3 id="1-ע��">1. ע��</h3>
+<h3 id="1-注册">1. 注册</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/register.php">http://redrock.hotwoo.cn/zhihu/register.php</a> <br>
-������</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/register.php">http://redrock.hotwoo.cn/zhihu/register.php</a> <br>
+参数：</p>
 
 <blockquote>
   <p>name: <br>
   password:</p>
 </blockquote>
 
-<p>���أ�</p>
+<p>返回：</p>
 
 <pre><code>{
     "info": "INSERT INTO person ( name , password ) VALUES ( 'jimm' , '33' )",
 }
 </code></pre>
 
-<h3 id="2-��¼">2. ��¼</h3>
+<h3 id="2-登录">2. 登录</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/login.php">http://redrock.hotwoo.cn/zhihu/login.php</a> <br>
-����</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/login.php">http://redrock.hotwoo.cn/zhihu/login.php</a> <br>
+参数</p>
 
 <blockquote>
   <p>name: <br>
   password:</p>
 </blockquote>
 
-<p>���أ�</p>
+<p>返回：</p>
 
 <pre><code>{
         "id": "50",
@@ -54,38 +54,38 @@
 }
 </code></pre>
 
-<p>�����û���Ϣ��token</p>
+<p>返回用户信息及token</p>
 
-<h3 id="3-�޸�ͷ��">3. �޸�ͷ��</h3>
+<h3 id="3-修改头像">3. 修改头像</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/modifyFace.php">http://redrock.hotwoo.cn/zhihu/modifyFace.php</a> <br>
-����</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/modifyFace.php">http://redrock.hotwoo.cn/zhihu/modifyFace.php</a> <br>
+参数</p>
 
 <blockquote>
   <p>token: <br>
-  face��</p>
+  face：</p>
 </blockquote>
 
-<p>���û�ͷ���ַ����API������ͼƬ�ļ����棬ͼƬ��������ת�����ţ����ͼƬ��ַ��������</p>
+<p>传用户头像地址。本API不负责图片文件储存，图片储存请右转阿里，七牛。把图片地址传上来。</p>
 
-<p>����</p>
+<p>返回</p>
 
 <pre><code>{
     "info": "UPDATE person SET face = 33333 WHERE id = 50",
 }
 </code></pre>
 
-<h3 id="4-ȡ�����б�">4. ȡ�����б�</h3>
+<h3 id="4-取问题列表">4. 取问题列表</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/getQuestionList.php">http://redrock.hotwoo.cn/zhihu/getQuestionList.php</a> <br>
-����</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/getQuestionList.php">http://redrock.hotwoo.cn/zhihu/getQuestionList.php</a> <br>
+参数</p>
 
 <blockquote>
-  <p>page�� <br>
-  count���ɿգ�ÿҳ������Ĭ��20����</p>
+  <p>page： <br>
+  count：可空，每页条数，默认20条。</p>
 </blockquote>
 
-<p>����</p>
+<p>返回</p>
 
 <pre><code>{
 
@@ -94,8 +94,8 @@
     "questions": [
         {
             "id": "70",
-            "title": "Ϊʲôŷ�޸�����������������밶���ģ�",
-            "content": "�����ŷ�޳���Ӣ�����¹�����Ҳ������������밶���ĵ����ᣬ����ǰ���������¼��£���ۣ��ձ��ȵ���Ҳ�й����Ƶ����������Ϊʲô����˿��أ���Ը���������ʲôӰ�죿�����й���˵���ָ����ѡ��",
+            "title": "为什么欧洲各国都在争夺人民币离岸中心？",
+            "content": "最近在欧洲除了英国，德国法国也都加入人民币离岸中心的争夺，而早前在亚洲像新加坡，香港，日本等地区也有过类似的情况，各国为什么会如此看重？这对各国将产生什么影响？而对中国来说，又该如何选择？",
             "bestAnswerId": null,
             "date": "2015-06-08 19:38:33",
             "recent": "2015-06-10 15:17:04",
@@ -106,7 +106,7 @@
         },
         {
             "id": "75",
-            "title": "��ĩҪ������ô�죿",
+            "title": "期末要挂了怎么办？",
             "content": "",
             "bestAnswerId": null,
             "date": "2015-06-10 14:57:30",
@@ -118,8 +118,8 @@
         },
         {
             "id": "69",
-            "title": "�������쵼�����й��˷ϻ���",
-            "content": "�ǳ��������ߵȡ��쵼����8��Сʱ����ͣ��������",
+            "title": "怎样从领导讲话中过滤废话？",
+            "content": "非常急，在线等。领导讲了8个小时根本停不下来。",
             "bestAnswerId": null,
             "date": "2015-06-08 17:22:17",
             "recent": "2015-06-10 14:56:37",
@@ -130,8 +130,8 @@
         },
         {
             "id": "74",
-            "title": "��Ϊ����ô�ţ�",
-            "content": "��ը�ˡ�",
+            "title": "你为何这么屌？",
+            "content": "屌炸了。",
             "bestAnswerId": null,
             "date": "2015-06-10 14:52:36",
             "recent": "2015-06-10 14:52:36",
@@ -142,8 +142,8 @@
         },
         {
             "id": "68",
-            "title": "�ھ�������ļ�ǿ��",
-            "content": "�ǳ��������ߵȣ�",
+            "title": "挖掘机技术哪家强？",
+            "content": "非常急，在线等！",
             "bestAnswerId": null,
             "date": "2015-06-08 17:17:48",
             "recent": "2015-06-10 14:45:58",
@@ -157,23 +157,23 @@
 }
 </code></pre>
 
-<p>recent��ʾ����ظ�ʱ�䡣û�лظ�ʱΪnull��</p>
+<p>recent表示最近回复时间。没有回复时为null。</p>
 
-<h3 id="5-ȡ�ش��б�">5. ȡ�ش��б�</h3>
+<h3 id="5-取回答列表">5. 取回答列表</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/getAnswerList.php">http://redrock.hotwoo.cn/zhihu/getAnswerList.php</a> <br>
-������</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/getAnswerList.php">http://redrock.hotwoo.cn/zhihu/getAnswerList.php</a> <br>
+参数：</p>
 
 <blockquote>
   <p>page: <br>
   questionId: <br>
-  count���ɿգ�ÿҳ������Ĭ��20���� <br>
-  desc���ɿգ��Ƿ�����true �� false</p>
+  count：可空，每页条数，默认20条。 <br>
+  desc：可空，是否倒序，填true 或 false</p>
 </blockquote>
 
 <p>count <br>
 desc <br>
-���أ�</p>
+返回：</p>
 
 <pre><code>{
         "totalCount": "2",
@@ -200,10 +200,10 @@ desc <br>
 }
 </code></pre>
 
-<h3 id="6-��������">6. ��������</h3>
+<h3 id="6-发布问题">6. 发布问题</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/question.php">http://redrock.hotwoo.cn/zhihu/question.php</a> <br>
-������</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/question.php">http://redrock.hotwoo.cn/zhihu/question.php</a> <br>
+参数：</p>
 
 <blockquote>
   <p>title: <br>
@@ -211,17 +211,17 @@ desc <br>
   token:</p>
 </blockquote>
 
-<p>���أ�</p>
+<p>返回：</p>
 
 <pre><code>{
-    "info": "INSERT INTO question ( authorId , title , content , date ) \n\tVALUES ( '19' , '���Ǳ���','��������',now())",
+    "info": "INSERT INTO question ( authorId , title , content , date ) \n\tVALUES ( '19' , '这是标题','这是描述',now())",
 }
 </code></pre>
 
-<h3 id="7-�����ش�">7. �����ش�</h3>
+<h3 id="7-发布回答">7. 发布回答</h3>
 
-<p>��ַ��<a href="http://redrock.hotwoo.cn/zhihu/answer.php">http://redrock.hotwoo.cn/zhihu/answer.php</a> <br>
-������</p>
+<p>地址：<a href="http://redrock.hotwoo.cn/zhihu/answer.php">http://redrock.hotwoo.cn/zhihu/answer.php</a> <br>
+参数：</p>
 
 <blockquote>
   <p>questionId: <br>
@@ -229,7 +229,7 @@ desc <br>
   token</p>
 </blockquote>
 
-<p>���أ�</p>
+<p>返回：</p>
 
 <pre><code>{
     "info": "INSERT INTO answer ( authorId , questionId , content , date ) VALUES ( '34' , '13','hehe',now())",
