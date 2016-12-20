@@ -1,10 +1,10 @@
 <?php
-function success_encode($info = null, $data = null)
+function success_encode($data = null, $info = null)
 {
     $result["status"] = 200;
     if ($info) {
         $result["info"] = $info;
-    }else{
+    } else {
         $result["info"] = "success";
     }
     if ($data) {

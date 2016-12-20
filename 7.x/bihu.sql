@@ -44,3 +44,15 @@ CREATE TABLE `answer` (
 )
   DEFAULT CHARSET = utf8mb4;
 
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE `image` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `aid` INT UNSIGNED,
+  `qid` INT UNSIGNED,
+  `url` TEXT         NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`aid`) REFERENCES answer (`id`),
+  FOREIGN KEY (`qid`) REFERENCES question (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;
+

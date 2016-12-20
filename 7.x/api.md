@@ -159,8 +159,9 @@ recent表示最近回复时间，没有回复时为null。
 
 ```json
 {
-  "status": 200,
-  "info": {
+  "status": 200,  
+  "info": "success",
+  "data": {
     "totalCount": 1,
     "totalPage": 1,
     "answers": [
@@ -240,7 +241,7 @@ recent表示最近回复时间，没有回复时为null。
 参数：
 
 >id:  
->type: ANSWER -> 1, QUESTION -> 0  
+>type: ANSWER -> 2, QUESTION -> 1  
 >token
 
 返回:：
@@ -252,3 +253,42 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
+### 10.上传图片
+
+地址：http://xxx.xxx/bihu/newImage.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>url
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "success"
+}
+```
+
+### 11.获取图片
+
+地址：http://xxx.xxx/bihu/getImage.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+
+返回：
+
+```json
+{
+  "status": 200,
+  "info": "success",
+  "data": [
+    {
+      "url": "www.baidu.com"
+    }
+  ]
+}
+```

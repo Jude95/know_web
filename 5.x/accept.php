@@ -6,7 +6,7 @@
  $answerId = addslashes($_POST["answerId"]);
  $questionId = addslashes($_POST["answerId"]);
  $userId = checkToken(addslashes($_POST["token"]),$returnData);
-	if ($result == -1) {
+	if ($userId == -1) {
 		echo json_encode($returnData);
 		return;
 	}
