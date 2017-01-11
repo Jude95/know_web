@@ -22,7 +22,8 @@ CREATE TABLE `question` (
   `recent`      TIMESTAMP    NULL     DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `title`       VARCHAR(32)  NOT NULL,
   `content`     TEXT         NOT NULL,
-  `exciting`    INT                   DEFAULT 0,
+  `exciting`    INT UNSIGNED          DEFAULT 0,
+  `naive`       INT UNSIGNED          DEFAULT 0,
   `date`        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`uid`) REFERENCES person (`id`)
@@ -35,7 +36,8 @@ CREATE TABLE `answer` (
   `uid`      INT UNSIGNED NOT NULL,
   `qid`      INT UNSIGNED NOT NULL,
   `content`  TEXT         NOT NULL,
-  `exciting` INT                   DEFAULT 0,
+  `exciting` INT UNSIGNED          DEFAULT 0,
+  `naive`    INT UNSIGNED          DEFAULT 0,
   `best`     BOOLEAN               DEFAULT FALSE,
   `date`     TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -44,3 +46,70 @@ CREATE TABLE `answer` (
 )
   DEFAULT CHARSET = utf8mb4;
 
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE `image` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `aid` INT UNSIGNED,
+  `qid` INT UNSIGNED,
+  `url` TEXT         NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`aid`) REFERENCES answer (`id`),
+  FOREIGN KEY (`qid`) REFERENCES question (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;
+
+DROP TABLE IF EXISTS `favorite`;
+CREATE TABLE `favorite` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uid` INT UNSIGNED NOT NULL,
+  `qid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`uid`) REFERENCES person (`id`),
+  FOREIGN KEY (`qid`) REFERENCES question (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;
+
+DROP TABLE IF EXISTS `exciting_question`;
+CREATE TABLE `exciting_question` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uid` INT UNSIGNED NOT NULL,
+  `qid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`uid`) REFERENCES person (`id`),
+  FOREIGN KEY (`qid`) REFERENCES question (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;
+
+DROP TABLE IF EXISTS `naive_question`;
+CREATE TABLE `naive_question` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uid` INT UNSIGNED NOT NULL,
+  `qid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`uid`) REFERENCES person (`id`),
+  FOREIGN KEY (`qid`) REFERENCES question (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;
+
+
+DROP TABLE IF EXISTS `exciting_answer`;
+CREATE TABLE `exciting_answer` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uid` INT UNSIGNED NOT NULL,
+  `aid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`uid`) REFERENCES person (`id`),
+  FOREIGN KEY (`aid`) REFERENCES answer (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;
+
+DROP TABLE IF EXISTS `naive_answer`;
+CREATE TABLE `naive_answer` (
+  `id`  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `uid` INT UNSIGNED NOT NULL,
+  `aid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`uid`) REFERENCES person (`id`),
+  FOREIGN KEY (`aid`) REFERENCES answer (`id`)
+)
+  DEFAULT CHARSET = utf8mb4;

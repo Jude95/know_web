@@ -16,21 +16,21 @@ if (!$count) {
 
 $sql = $pdo->prepare("
     SELECT
-      answer.id,
-      answer.content,
-      answer.date,
-      answer.best,
-      answer.exciting,
-      answer.naive,
-      answer.uid      AS authorId,
+      question.id,
+      question.title,
+      question.content,
+      question.date,
+      question.recent,
+      question.answerCount,
+      question.uid    AS autherId,
       person.username AS authorName,
       person.avatar   AS authorAvatar
-    FROM person
-      RIGHT JOIN answer ON person.id = answer.uid
-    WHERE qid = ?
-    ORDER BY `date`
+    FROM question
+      RIGHT JOIN person ON person.id = question.uid
+      RIGHT JOIN favorite ON favorite.qid = question.id
+    WHERE favorite.uid = ? ORDER BY IFNULL(`recent`, `date`) DESC
     LIMIT ?, ?
-");
+    ");
 
 $sql->execute(array($qid, $page * $count, $count));
 $data = null;
