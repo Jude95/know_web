@@ -18,7 +18,7 @@
 
 ### 1. 注册
 
-地址：https://api.caoyue.com.cn/bihu/register.php    
+地址：http://xxx.xxx/bihu/register.php    
 参数：
 
 >username:  
@@ -42,7 +42,7 @@
 
 ### 2. 登录
 
-地址：https://api.caoyue.com.cn/bihu/login.php    
+地址：http://xxx.xxx/bihu/login.php    
 参数
 
 >username:  
@@ -67,7 +67,7 @@
 
 ### 3. 修改头像
 
-地址：https://api.caoyue.com.cn/bihu/modifyAvatar.php    
+地址：http://xxx.xxx/bihu/modifyAvatar.php    
 参数
 
 >token:  
@@ -86,7 +86,7 @@
 
 ### 4. 取问题列表
 
-地址：https://api.caoyue.com.cn/bihu/getQuestionList.php
+地址：http://xxx.xxx/bihu/getQuestionList.php
 参数
 
 >page:  
@@ -148,7 +148,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 5. 取回答列表
 
-地址：https://api.caoyue.com.cn/bihu/getAnswerList.php    
+地址：http://xxx.xxx/bihu/getAnswerList.php    
 参数：
 
 >page:  
@@ -183,7 +183,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 6. 发布问题
 
-地址：https://api.caoyue.com.cn/bihu/question.php    
+地址：http://xxx.xxx/bihu/question.php    
 参数：
 
 >title:  
@@ -201,7 +201,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 7. 发布回答
 
-地址：https://api.caoyue.com.cn/bihu/answer.php    
+地址：http://xxx.xxx/bihu/answer.php    
 参数：
 
 >qid:  
@@ -219,7 +219,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 8.采纳
 
-地址：https://api.caoyue.com.cn/bihu/accept.php    
+地址：http://xxx.xxx/bihu/accept.php    
 参数：
 
 >qid:  
@@ -237,7 +237,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 9.![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
 
-地址：https://api.caoyue.com.cn/bihu/exciting.php    
+地址：http://xxx.xxx/bihu/exciting.php    
 参数：
 
 >id:  
@@ -273,7 +273,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 11.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
 
-地址：https://api.caoyue.com.cn/bihu/cancelExciting.php    
+地址：http://xxx.xxx/bihu/cancelExciting.php    
 参数：
 
 >id:  
@@ -291,7 +291,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 12.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
 
-地址：https://api.caoyue.com.cn/bihu/cancelNaive.php    
+地址：http://xxx.xxx/bihu/cancelNaive.php    
 参数：
 
 >id:  
@@ -309,7 +309,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 13.上传图片
 
-地址：https://api.caoyue.com.cn/bihu/newImage.php    
+地址：http://xxx.xxx/bihu/newImage.php    
 参数：
 
 >id:  
@@ -327,7 +327,7 @@ recent表示最近回复时间，没有回复时为null。
 
 ### 14.获取图片
 
-地址：https://api.caoyue.com.cn/bihu/getImage.php    
+地址：http://xxx.xxx/bihu/getImage.php    
 参数：
 
 >id:  
