@@ -3,6 +3,9 @@ CREATE DATABASE `bihu`;
 
 USE `bihu`;
 
+-- Disable foreign key checks to execute it without errors.
+SET FOREIGN_KEY_CHECKS=0;
+
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
   `id`       INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -113,3 +116,6 @@ CREATE TABLE `naive_answer` (
   FOREIGN KEY (`aid`) REFERENCES answer (`id`)
 )
   DEFAULT CHARSET = utf8mb4;
+
+-- Re-enable foreign key checks to use it normally.
+SET FOREIGN_KEY_CHECKS=1;
