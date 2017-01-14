@@ -2,9 +2,7 @@
 include("connect.php");
 include("jsonWrapper.php");
 
-
 $dataInfo = array("totalCount" => 0, "totalPage" => 0, "answers" => null);
-
 
 $page = (int)$_POST["page"];
 $count = (int)$_POST["count"];

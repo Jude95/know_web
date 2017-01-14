@@ -2,13 +2,13 @@
 include("connect.php");
 include("jsonWrapper.php");
 
-
 $dataInfo = array("totalCount" => 0, "totalPage" => 0, "answers" => null);
 
 
+$token = $_POST["token"];
+$uid = checkToken($pdo, $token);
 $page = (int)$_POST["page"];
 $count = (int)$_POST["count"];
-$qid = (int)$_POST["qid"];
 
 if (!$count) {
     $count = 10;
@@ -32,7 +32,7 @@ $sql = $pdo->prepare("
     LIMIT ?, ?
     ");
 
-$sql->execute(array($qid, $page * $count, $count));
+$sql->execute(array($uid, $page * $count, $count));
 $data = null;
 foreach ($sql->fetchAll(PDO::FETCH_NAMED) as $row) {
     $data[] = $row;

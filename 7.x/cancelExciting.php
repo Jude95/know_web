@@ -18,7 +18,7 @@ switch ($type) {
         $exciting = $pdo->prepare("UPDATE question SET exciting = exciting - 1");
         break;
     case $TYPE_QUESTION:
-        $sql = $pdo->prepare("INSERT INTO exciting_question (`uid`, `qid` ) VALUES ( ?, ?)");
+        $sql = $pdo->prepare("DELETE FROM exciting_question WHERE `uid` = ? AND `qid` = ?");
         $exciting = $pdo->prepare("UPDATE question SET exciting = exciting - 1");
         break;
     default:
