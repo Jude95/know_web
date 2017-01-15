@@ -14,12 +14,12 @@ $exciting = null;
 
 switch ($type) {
     case $TYPE_ANSWER:
-        $sql = $pdo->prepare("INSERT INTO exciting_answer (`uid`, `aid` ) VALUES ( ?, ?)");
-        $exciting = $pdo->prepare("UPDATE question SET exciting = exciting + 1");
+        $sql = $pdo->prepare("DELETE FROM exciting_answer WHERE `uid` = ? AND `aid` = ?");
+        $exciting = $pdo->prepare("UPDATE question SET exciting = exciting - 1");
         break;
     case $TYPE_QUESTION:
-        $sql = $pdo->prepare("INSERT INTO naive_question (`uid`, `qid` ) VALUES ( ?, ?)");
-        $exciting = $pdo->prepare("UPDATE question SET exciting = exciting + 1");
+        $sql = $pdo->prepare("DELETE FROM exciting_question WHERE `uid` = ? AND `qid` = ?");
+        $exciting = $pdo->prepare("UPDATE question SET exciting = exciting - 1");
         break;
     default:
         other_encode(400, "一点都不exciting");

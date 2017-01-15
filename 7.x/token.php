@@ -12,7 +12,7 @@ function checkToken(PDO $pdo, $token)
     }
 }
 
-function create_unique(PDO $pdo, int $id)
+function create_unique(PDO $pdo, $id)
 {
     $data = $_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR'] . time() . rand();
     $data = sha1($data);

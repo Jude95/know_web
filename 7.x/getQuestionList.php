@@ -11,8 +11,24 @@ if (!$count) {
 }
 $start = $page * $count;
 
-$sql = $pdo->prepare("SELECT question.id, question.title, question.content, question.date, question.recent, question.answerCount, question.exciting, question.uid AS autherId, person.username AS authorName, person.avatar AS authorAvatar 
-FROM person RIGHT JOIN question ON person.id = question.uid ORDER BY IFNULL(`recent`, `date`) DESC LIMIT ? , ?");
+$sql = $pdo->prepare("
+    SELECT
+      question.id,
+      question.title,
+      question.content,
+      question.date,
+      question.exciting,
+      question.naive,
+      question.recent,
+      question.answerCount,
+      question.uid    AS autherId,
+      person.username AS authorName,
+      person.avatar   AS authorAvatar
+    FROM person
+      RIGHT JOIN question ON person.id = question.uid
+    ORDER BY IFNULL(`recent`, `date`) DESC
+    LIMIT ?, ?
+");
 
 $sql->execute(array($page * $count, $count));
 $data = null;

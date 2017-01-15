@@ -159,8 +159,9 @@ recent表示最近回复时间，没有回复时为null。
 
 ```json
 {
-  "status": 200,
-  "info": {
+  "status": 200,  
+  "info": "success",
+  "data": {
     "totalCount": 1,
     "totalPage": 1,
     "answers": [
@@ -216,7 +217,7 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 9.采纳
+### 8.采纳
 
 地址：http://xxx.xxx/bihu/accept.php    
 参数：
@@ -234,13 +235,13 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
-### 9.点赞
+### 9.![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
 
 地址：http://xxx.xxx/bihu/exciting.php    
 参数：
 
 >id:  
->type: ANSWER -> 1, QUESTION -> 0  
+>type: ANSWER -> 2, QUESTION -> 1  
 >token
 
 返回:：
@@ -252,3 +253,96 @@ recent表示最近回复时间，没有回复时为null。
 }
 ```
 
+### 10. ![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
+
+地址：https://api.caoyue.com.cn/bihu/naive.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "naive"
+}
+```
+
+### 11.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/+1.png)
+
+地址：http://xxx.xxx/bihu/cancelExciting.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "excited"
+}
+```
+
+### 12.取消![](http://www.webpagefx.com/tools/emoji-cheat-sheet/graphics/emojis/-1.png)
+
+地址：http://xxx.xxx/bihu/cancelNaive.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>token
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "naive"
+}
+```
+
+### 13.上传图片
+
+地址：http://xxx.xxx/bihu/newImage.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+>url
+
+返回:：
+
+```json
+{
+  "status": 200,
+  "info": "success"
+}
+```
+
+### 14.获取图片
+
+地址：http://xxx.xxx/bihu/getImage.php    
+参数：
+
+>id:  
+>type: ANSWER -> 2, QUESTION -> 1  
+
+返回：
+
+```json
+{
+  "status": 200,
+  "info": "success",
+  "data": [
+    {
+      "url": "www.baidu.com"
+    }
+  ]
+}
+```
